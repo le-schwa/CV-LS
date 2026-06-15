@@ -40,6 +40,16 @@ sections:
       columns: "1"
     ce: "section-56f4819f"
     As: "section-866a2ce0"
+  - block: "markdown"
+    content:
+      title: "🎓 Teaching"
+      subtitle: ""
+      text: |-
+        - Übungsleiter, Analysis of High Dimensional Biological Data, LMU München
+    design:
+      columns: "1"
+    ce: "section-teaching"
+    As: "section-teaching"
   - block: "collection"
     content:
       title: "Featured Publications"
