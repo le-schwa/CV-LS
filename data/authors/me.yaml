@@ -11,8 +11,9 @@ postnominals:
   - MSc Mathematics
 role: PhD Student
 bio: |
-  Leander Schwarzmeier is a PhD student at Helmholtz Munich, working on
-  network inference for marine microbial time series. His research combines
+  Leander Schwarzmeier is a PhD student at Helmholtz Munich in the group of
+  Prof. Dr. Christian L. Müller, working on network inference for marine
+  microbial time series. His research combines
   mathematical modelling, statistics, and machine learning to uncover
   interaction networks within microbial communities. He holds a Master's
   degree in Mathematics from the Technical University of Munich, where his
@@ -57,6 +58,13 @@ education:
       Patterns", supervised by Prof. Dr. Jürgen Richter-Gebert.
 
 experience:
+  - role: PhD Student
+    org: Helmholtz Munich, Group of Prof. Dr. Christian L. Müller
+    start: 2025-10-01
+    summary: |
+      Researching network inference for marine microbial time series,
+      combining mathematical modelling, statistics, and machine learning to
+      uncover interaction networks within microbial communities.
   - role: Data Analyst Intern
     org: Müller-BBM Industry Solutions GmbH
     start: 2024-03-06
