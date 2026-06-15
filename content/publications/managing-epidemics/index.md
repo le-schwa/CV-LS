@@ -7,11 +7,8 @@ authors:
   - Christina Kuttler
   - Joachim Draeger
 date: 2024-01-01
-publication_types: ["preprint"]
-publication: "Preprint"
-doi: "10.13140/RG.2.2.29667.32803"
 summary: "Preprint on dynamic countermeasures and frictions in epidemic management."
-tags: []
+tags: ["Preprint"]
 featured: false
 ---
 
