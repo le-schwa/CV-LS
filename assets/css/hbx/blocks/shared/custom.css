@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;700&family=IBM+Plex+Sans:wght@400;500&family=IBM+Plex+Mono:wght@400&display=swap');
+
+body {
+  font-family: 'IBM Plex Sans', sans-serif !important;
+  background-color: #F5F2EB !important;
+  color: #1A1714 !important;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Lora', serif !important;
+}
+
+code, pre, .font-mono {
+  font-family: 'IBM Plex Mono', monospace !important;
+}
+
+.navbar {
+  background-color: #F5F2EB !important;
+  border-bottom: 1px solid #E0DBD0 !important;
+  box-shadow: none !important;
+}
+
+.navbar-brand {
+  font-family: 'Lora', serif !important;
+}
+
+.nav-item a {
+  color: #8A8070 !important;
+  font-size: 12px !important;
+  letter-spacing: 0.05em !important;
+  text-transform: uppercase !important;
+}
+
+.navbar-nav {
+  margin-left: auto !important;
+}
+
+:root {
+  --color-primary: #2D5016;
+}
+
+a {
+  color: #B8860B !important;
+}
