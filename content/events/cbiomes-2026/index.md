@@ -8,10 +8,11 @@ role: "Co-organizer"
 authors: []
 tags: []
 featured: false
-links:
-  - icon: hero/link
-    url: "https://cbiomes.org/collaborators/meetings/april-2026-cbiomes-workshop-on-machine-learning-for-time-series-data/"
-    label: Workshop Page
 ---
 
+**Role:** Co-organizer
+**Location:** New York, USA
+
 Co-organized the CBIOMES Workshop on Machine Learning for Time-Series Data, held in New York in April 2026.
+
+[Workshop page](https://cbiomes.org/collaborators/meetings/april-2026-cbiomes-workshop-on-machine-learning-for-time-series-data/)

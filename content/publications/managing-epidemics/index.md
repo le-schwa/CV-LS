@@ -11,13 +11,9 @@ publication_types: ["preprint"]
 publication: "Preprint"
 doi: "10.13140/RG.2.2.29667.32803"
 summary: "Preprint on dynamic countermeasures and frictions in epidemic management."
-links:
-  - icon: hero/document-text
-    url: "https://doi.org/10.13140/RG.2.2.29667.32803"
-    label: DOI
-  - icon: hero/link
-    url: "https://www.researchgate.net/publication/378526832"
-    label: ResearchGate
 tags: []
 featured: false
 ---
+
+- DOI: [10.13140/RG.2.2.29667.32803](https://doi.org/10.13140/RG.2.2.29667.32803)
+- [View on ResearchGate](https://www.researchgate.net/publication/378526832)
