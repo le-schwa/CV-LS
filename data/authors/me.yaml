@@ -7,11 +7,8 @@ name:
   family: Schwarzmeier
   alternate: ''
   pronunciation: ''
-  pronouns: he/him
 postnominals:
-  - MSc
-status:
-  icon: "🔬"
+  - MSc Mathematics
 role: PhD Student
 bio: |
   Leander Schwarzmeier is a PhD student at Helmholtz Munich, working on
@@ -36,7 +33,8 @@ links:
 
 interests:
   - Network Inference
-  - Marine Microbial Time Series
+  - Time Series Analysis
+  - Spatial Statistics
   - Mathematical Biology
   - Dynamical Systems
   - Machine Learning
@@ -64,7 +62,7 @@ experience:
     start: 2024-03-06
     end: 2024-04-02
     summary: |
-      Investigated machine learning algorithms for analyzing traffic noise
+      Investigated statistical methods to analyzing traffic noise
       data. Implemented principal component analysis and random forest
       regression in Julia, applied to technical and acoustic vehicle data
       to predict pass-by noise levels.

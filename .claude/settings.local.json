@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(find ~/go ~/.local -path \"*HugoBlox*\" -iname \"*author*\" 2>/dev/null | head -50; find / -maxdepth 6 -iname \"hugo_cache\" 2>/dev/null)",
+      "Read(//Users/Leander/**)"
+    ]
+  }
+}
