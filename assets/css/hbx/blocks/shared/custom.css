@@ -1,6 +1,6 @@
 body {
   font-family: 'IBM Plex Sans', sans-serif !important;
-  background-color: #F5F2EB !important;
+  background-color: #F0EAD9 !important;
   color: #1A1714 !important;
 }
 
@@ -12,9 +12,10 @@ code, pre, .font-mono {
   font-family: 'IBM Plex Mono', monospace !important;
 }
 
+#site-header.header,
 .navbar {
-  background-color: #F5F2EB !important;
-  border-bottom: 1px solid #E0DBD0 !important;
+  background-color: #F0EAD9 !important;
+  border-bottom: 1px solid #DDD2BD !important;
   box-shadow: none !important;
 }
 
