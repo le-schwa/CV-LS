@@ -41,3 +41,20 @@ code, pre, .font-mono {
 a {
   color: #4A76A8 !important;
 }
+
+#scroll-curve-container {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 90px;
+  height: 100vh;
+  pointer-events: none;
+  z-index: 40;
+  display: none;
+}
+
+@media (min-width: 1280px) {
+  #scroll-curve-container {
+    display: block;
+  }
+}
