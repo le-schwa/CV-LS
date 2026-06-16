@@ -22,7 +22,7 @@ sections:
       name:
         size: "md"
       avatar:
-        size: "medium"
+        size: "large"
         shape: "circle"
     ce: "section-23634243"
     As: "section-af406cbf"
