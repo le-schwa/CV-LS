@@ -1,7 +1,7 @@
 body {
   font-family: 'IBM Plex Sans', sans-serif !important;
-  background-color: #F0EAD9 !important;
-  color: #1A1714 !important;
+  background-color: #ffffff !important;
+  color: #1A1A1A !important;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -14,8 +14,8 @@ code, pre, .font-mono {
 
 #site-header.header,
 .navbar {
-  background-color: #F0EAD9 !important;
-  border-bottom: 1px solid #DDD2BD !important;
+  background-color: #ffffff !important;
+  border-bottom: 1px solid #E5E7EB !important;
   box-shadow: none !important;
 }
 
@@ -24,7 +24,7 @@ code, pre, .font-mono {
 }
 
 .nav-item a {
-  color: #8A8070 !important;
+  color: #6B7280 !important;
   font-size: 12px !important;
   letter-spacing: 0.05em !important;
   text-transform: uppercase !important;
@@ -35,9 +35,9 @@ code, pre, .font-mono {
 }
 
 :root {
-  --color-primary: #2D5016;
+  --color-primary: #4A76A8;
 }
 
 a {
-  color: #B8860B !important;
+  color: #4A76A8 !important;
 }
