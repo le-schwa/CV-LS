@@ -41,14 +41,3 @@ code, pre, .font-mono {
 a {
   color: #B8860B !important;
 }
-
-/* Download CV button – solid dark green, no gradient */
-a[class*="bg-gradient"] {
-  background-image: none !important;
-  background-color: #2D5016 !important;
-  color: white !important;
-  box-shadow: none !important;
-}
-a[class*="bg-gradient"]:hover {
-  background-color: #3a6b1f !important;
-}
