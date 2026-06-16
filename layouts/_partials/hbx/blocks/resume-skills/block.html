@@ -1,0 +1,108 @@
+{{/* Hugo Blox: Skills */}}
+{{/* Documentation: https://hugoblox.com/blocks/ */}}
+{{/* License: https://github.com/HugoBlox/kit/blob/main/LICENSE.md */}}
+
+{{/* Initialise */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+{{ $design := $block.design }}
+{{ if not (reflect.IsMap $design) }}{{ $design = dict }}{{ end }}
+
+{{ $username := "me" }}
+{{ $username_raw := index $content "username" }}
+{{ if eq (printf "%T" $username_raw) "string" }}
+  {{ $username = strings.TrimSpace $username_raw }}
+{{ end }}
+{{ $profile := partial "functions/get_author_profile" $username }}
+
+{{ $skills_raw := $profile.skills }}
+{{ $skills_iter := slice }}
+{{ if reflect.IsSlice $skills_raw }}
+  {{ $skills_iter = $skills_raw }}
+{{ else if and $skills_raw (reflect.IsMap $skills_raw) }}
+  {{ $skills_iter = slice $skills_raw }}
+{{ end }}
+
+{{ $skills := slice }}
+{{ if gt (len $skills_iter) 0 }}
+  {{ range $skills_iter }}
+    {{ if reflect.IsMap . }}
+      {{ $name := "" }}
+      {{ $description := "" }}
+      {{ $color := "" }}
+      {{ $color_border := "" }}
+      {{ $items_raw := index . "items" }}
+      {{ $items_iter := slice }}
+      {{ if reflect.IsSlice $items_raw }}
+        {{ $items_iter = $items_raw }}
+      {{ else if and $items_raw (reflect.IsMap $items_raw) }}
+        {{ $items_iter = slice $items_raw }}
+      {{ end }}
+      {{ $items := slice }}
+
+      {{ with index . "name" }}{{ $name = strings.TrimSpace (printf "%v" .) }}{{ end }}
+      {{ with index . "description" }}{{ $description = strings.TrimSpace (printf "%v" .) }}{{ end }}
+      {{ with index . "color" }}{{ $color = strings.TrimSpace (printf "%v" .) }}{{ end }}
+      {{ with index . "color_border" }}{{ $color_border = strings.TrimSpace (printf "%v" .) }}{{ end }}
+
+      {{ if gt (len $items_iter) 0 }}
+        {{ range $items_iter }}
+          {{ if reflect.IsMap . }}
+            {{ $item_label := "" }}
+            {{ $item_name := "" }}
+            {{ $item_desc := "" }}
+            {{ $item_icon := "" }}
+            {{ $level := "" }}
+
+            {{ with index . "label" }}{{ $item_label = strings.TrimSpace (printf "%v" .) }}{{ end }}
+            {{ with index . "name" }}{{ $item_name = strings.TrimSpace (printf "%v" .) }}{{ end }}
+            {{ with index . "description" }}{{ $item_desc = strings.TrimSpace (printf "%v" .) }}{{ end }}
+            {{ with index . "icon" }}{{ $item_icon = strings.TrimSpace (printf "%v" .) }}{{ end }}
+            {{ with index . "level" }}{{ $level = strings.TrimSpace (printf "%v" .) }}{{ end }}
+
+            {{ if or $item_label $item_name }}
+              {{ $items = $items | append (dict "label" $item_label "name" $item_name "description" $item_desc "icon" $item_icon "level" $level) }}
+            {{ end }}
+          {{ end }}
+        {{ end }}
+      {{ end }}
+
+      {{ if and $name (gt (len $items) 0) }}
+        {{ $skills = $skills | append (dict "name" $name "description" $description "color" $color "color_border" $color_border "items" $items) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $title := "" }}
+{{ $title_raw := index $content "title" }}
+{{ if $title_raw }}{{ $title = strings.TrimSpace (printf "%v" $title_raw) }}{{ end }}
+
+{{ $text := "" }}
+{{ $text_raw := index $content "text" }}
+{{ if $text_raw }}{{ $text = strings.TrimSpace (printf "%v" $text_raw) }}{{ end }}
+
+{{ $columns := partial "functions/coerce_int" (dict "value" (index $design "columns") "default" 2 "min" 1 "max" 5) }}
+
+<div class="max-w-prose mx-auto">
+
+  <div class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+    {{ $title | markdownify | emojify }}
+  </div>
+
+  {{ with $text }}<p class="mb-4">{{ . | markdownify | emojify }}</p>{{ end }}
+
+  {{ range $skills }}
+  <div class="mb-4">
+    <div class="mb-1 font-semibold text-gray-700 dark:text-gray-300">
+      {{ index . "name" | markdownify | emojify }}
+    </div>
+    <p class="text-gray-600 dark:text-gray-400">
+      {{ range $i, $item := (index . "items") }}{{ if $i }}, {{ end }}{{ $item.label | default $item.name | markdownify | emojify }}{{ end }}
+    </p>
+  </div>
+  {{ end }}
+
+</div>

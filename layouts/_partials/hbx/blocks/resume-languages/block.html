@@ -1,0 +1,92 @@
+{{/* Hugo Blox: Languages */}}
+{{/* Documentation: https://hugoblox.com/blocks/ */}}
+{{/* License: https://github.com/HugoBlox/kit/blob/main/LICENSE.md */}}
+
+{{/* Initialise */}}
+{{ $page := .wcPage }}
+{{ $block := .wcBlock }}
+{{ $content := $block.content }}
+{{ if not (reflect.IsMap $content) }}{{ $content = dict }}{{ end }}
+{{ $design := $block.design }}
+{{ if not (reflect.IsMap $design) }}{{ $design = dict }}{{ end }}
+
+{{ $username := "me" }}
+{{ $username_raw := index $content "username" }}
+{{ if eq (printf "%T" $username_raw) "string" }}
+  {{ $username = strings.TrimSpace $username_raw }}
+{{ end }}
+{{ $profile := partial "functions/get_author_profile" $username }}
+
+{{ $langs_raw := $profile.languages }}
+{{ $langs_iter := slice }}
+{{ if reflect.IsSlice $langs_raw }}
+  {{ $langs_iter = $langs_raw }}
+{{ else if and $langs_raw (reflect.IsMap $langs_raw) }}
+  {{ $langs_iter = slice $langs_raw }}
+{{ end }}
+
+{{ $langs := slice }}
+{{ if gt (len $langs_iter) 0 }}
+  {{ range $langs_iter }}
+    {{ if reflect.IsMap . }}
+      {{ $name := "" }}
+      {{ $level_text := "" }}
+      {{ $label := "" }}
+      {{ $percent_raw := "" }}
+
+      {{ with index . "name" }}{{ $name = strings.TrimSpace (printf "%v" .) }}{{ end }}
+      {{ with index . "level" }}{{ $level_text = strings.TrimSpace (printf "%v" .) }}{{ end }}
+      {{ with index . "label" }}{{ $label = strings.TrimSpace (printf "%v" .) }}{{ end }}
+      {{ with index . "percent" }}{{ $percent_raw = strings.TrimSpace (printf "%v" .) }}{{ end }}
+
+      {{ $percent := 100.0 }}
+      {{ $numeric_level := gt (len (findRE "^[0-9]+(?:\\.[0-9]+)?$" $level_text)) 0 }}
+      {{ if $numeric_level }}
+        {{ $percent = mul (float $level_text) 20 }}
+      {{ else if $percent_raw }}
+        {{ if gt (len (findRE "^[0-9]+(?:\\.[0-9]+)?$" $percent_raw)) 0 }}
+          {{ $percent = float $percent_raw }}
+        {{ end }}
+      {{ end }}
+
+      {{ if gt $percent 100 }}{{ $percent = 100 }}{{ end }}
+      {{ if lt $percent 0 }}{{ $percent = 0 }}{{ end }}
+
+      {{ if $name }}
+        {{ $langs = $langs | append (dict "name" $name "level" $level_text "label" $label "percent" $percent "numeric_level" $numeric_level) }}
+      {{ end }}
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ $title := "" }}
+{{ $title_raw := index $content "title" }}
+{{ if $title_raw }}{{ $title = strings.TrimSpace (printf "%v" $title_raw) }}{{ end }}
+
+{{ $text := "" }}
+{{ $text_raw := index $content "text" }}
+{{ if $text_raw }}{{ $text = strings.TrimSpace (printf "%v" $text_raw) }}{{ end }}
+
+<div class="max-w-prose mx-auto">
+
+  <div class="mb-4 text-xl font-bold text-gray-900 dark:text-white">
+    {{ $title | markdownify | emojify }}
+  </div>
+
+  {{ with $text }}<p class="mb-4">{{ . | markdownify | emojify }}</p>{{ end }}
+
+  <ul class="space-y-1">
+    {{ range $langs }}
+    {{ $label := index . "label" }}
+    {{ $level_text := index . "level" }}
+    {{ $numeric_level := index . "numeric_level" }}
+    {{ $sublabel := $label }}
+    {{ if and (not $label) (not $numeric_level) }}{{ $sublabel = $level_text }}{{ end }}
+    <li class="flex gap-2 text-gray-700 dark:text-gray-300">
+      <span class="font-medium">{{ index . "name" }}</span>
+      {{ with $sublabel }}<span class="text-gray-400">·</span><span class="text-gray-500 dark:text-gray-400">{{ . }}</span>{{ end }}
+    </li>
+    {{ end }}
+  </ul>
+
+</div>
