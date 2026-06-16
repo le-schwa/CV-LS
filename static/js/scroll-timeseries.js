@@ -25,7 +25,9 @@
     }
 
     function update() {
-      const height = window.innerHeight;
+      const header = document.getElementById('site-header');
+      const headerH = header ? header.offsetHeight : 60;
+      const height = window.innerHeight - headerH;
       const max = document.documentElement.scrollHeight - window.innerHeight;
       const frac = max > 0 ? window.scrollY / max : 0;
       const { d, lastPt } = buildPath(frac, height);

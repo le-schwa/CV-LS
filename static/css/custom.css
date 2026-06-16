@@ -44,13 +44,16 @@ a {
 
 #scroll-curve-container {
   position: fixed;
-  top: 0;
+  top: 60px;
   right: 0;
   width: 90px;
-  height: 100vh;
+  height: calc(100vh - 60px);
   pointer-events: none;
   z-index: 40;
   display: none;
+  background: rgba(243, 244, 246, 0.75);
+  border-radius: 6px 0 0 6px;
+  border-left: 1px solid #E5E7EB;
 }
 
 @media (min-width: 1280px) {
