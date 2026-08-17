@@ -1,16 +1,14 @@
 ---
-title: CBIOMES Workshop on Machine Learning for Time-Series Data
+title: "CBIOMES Workshop on Machine Learning for Time-Series Data"
 date: 2026-04-01
 draft: false
-summary: Co-organized the CBIOMES Workshop on Machine Learning for Time-Series Data in New York.
-location: New York, USA
-role: Co-organizer
+summary: "Co-organized the CBIOMES Workshop on Machine Learning for Time-Series Data in New York."
+location: "New York, USA"
+role: "Co-organizer"
 authors: []
 tags: []
 featured: false
-event_start: 2026-04-01
 ---
-
 
 **Role:** Co-organizer
 **Location:** New York, USA
